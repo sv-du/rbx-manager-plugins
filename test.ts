@@ -9,7 +9,7 @@ const command: CommandFile = {
         return await interaction.editReply({content: "Testing plugin system"});
     },
     slashData: new Discord.SlashCommandBuilder()
-    .setName("test")
+    .setName(require("path").basename(__filename).split(".")[0])
     .setDescription("Testing plugin system"),
     commandData: {
         category: "General Group",
