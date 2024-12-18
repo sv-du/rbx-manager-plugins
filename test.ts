@@ -1,0 +1,22 @@
+import Discord from 'discord.js';
+
+import BotClient from '../../../utils/classes/BotClient';
+
+import CommandFile from '../../../utils/interfaces/CommandFile';
+
+const command: CommandFile = {
+    run: async(interaction: Discord.CommandInteraction, client: BotClient, args: any): Promise<any> => {
+        return await interaction.editReply({content: "Testing plugin system"});
+    },
+    slashData: new Discord.SlashCommandBuilder()
+    .setName(require("path").basename(__filename).split(".")[0])
+    .setDescription("Testing plugin system"),
+    commandData: {
+        category: "General Group",
+        isEphemeral: false,
+        hasCooldown: false,
+        preformGeneralVerificationChecks: false
+    }
+}
+
+export default command;
